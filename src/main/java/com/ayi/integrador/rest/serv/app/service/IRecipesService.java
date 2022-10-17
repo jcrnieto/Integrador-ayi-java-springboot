@@ -5,13 +5,15 @@ import com.ayi.integrador.rest.serv.app.dto.response.FindAllRecipesResponseDTO;
 import com.ayi.integrador.rest.serv.app.dto.response.FormRecipesResponseDTO;
 import com.ayi.integrador.rest.serv.app.dto.response.RecipesByIdResponseDTO;
 
+import java.util.List;
+
 public interface IRecipesService {
 
     RecipesByIdResponseDTO findRecipeById(Long idRecipes);
 
-    FindAllRecipesResponseDTO findAll();
-
-
+    List<FindAllRecipesResponseDTO> findAll();
 
     FormRecipesResponseDTO addRecipe(RecipesRequestDTO requestDTO);
+
+    List<FindAllRecipesResponseDTO> searchByTitle(String title);
 }

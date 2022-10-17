@@ -37,7 +37,7 @@ public class RecipesByIdResponseDTO {
     private Integer calories;
 
     @ApiModelProperty(position = 7, notes = "Non negative value. ID is required.")
-    private List<Diets> diets;
+    private List diets;
 
 
 }

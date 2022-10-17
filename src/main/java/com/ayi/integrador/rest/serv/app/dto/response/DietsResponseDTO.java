@@ -15,9 +15,6 @@ import lombok.*;
 )
 public class DietsResponseDTO {
 
-    @ApiModelProperty(position = 1, notes = "Non negative value. ID is required.")
-    private Long idDiets;
-
     @ApiModelProperty(position = 2, notes = "Non negative value. typeOfDiet is required.")
     private String typeOfDiet;
 }

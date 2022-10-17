@@ -40,9 +40,9 @@ public class DietsControllers {
                     code = 400,
                     message = "Describes errors on invalid payload received, e.g: missing fields, invalid data formats, etc.")
     })
-    public ResponseEntity<DietsResponseDTO> getAllDiets() {
+    public ResponseEntity<List<DietsResponseDTO>> getAllDiets() {
 
-       DietsResponseDTO dietsResponseDTOS =  iDietsService.findAllDiets();
+       List<DietsResponseDTO> dietsResponseDTOS =  iDietsService.findAllDiets();
         return  ResponseEntity.ok(dietsResponseDTOS);
     }
 }

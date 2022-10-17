@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,8 +23,17 @@ public class Diets {
     @Column(name="type_of_diet", nullable = false, length = 50)
     private String typeOfDiet;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "recipes_fk", referencedColumnName = "id_recipes")
-    private List<Recipes> recipes;
+    @OneToMany(mappedBy = "diets")
+    private List<Recipes> recipes = new ArrayList<>();
 
 }
+
+/*@ManyToMany(cascade = CascadeType.ALL)
+@JoinTable(name = "tbl_pedidos_productos",
+        joinColumns = @JoinColumn(name = "pedido_id"),
+        inverseJoinColumns = @JoinColumn(name = "producto_id")
+
+
+
+@ManyToMany(mappedBy = "productos")
+)*/

@@ -92,6 +92,30 @@ public class RecipesControllers {
             @RequestBody RecipesRequestDTO requestDTO) {
         return new ResponseEntity<>(recipesService.addRecipe(requestDTO), HttpStatus.CREATED);
     }
+
+    @GetMapping(
+            value = "/searchRecipesByTitle/{title}", produces = {MediaType.APPLICATION_JSON_VALUE}
+    )
+    @ApiOperation(
+            value = "Retrieves data associated to Master List by Id",
+            httpMethod = "GET",
+            response = FindAllRecipesResponseDTO.class
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    code = 200,
+                    message = "Body content with basic information for Master List  by Id"
+            ),
+            @ApiResponse(
+                    code = 400,
+                    message = "Describes errors on invalid payload received, e.g: missing fields, invalid data formats, etc.")
+    })
+    public ResponseEntity<List<FindAllRecipesResponseDTO>> searchRecipesByTitle(
+            @ApiParam(name = "title", required = true, value = "Direction Id", example = "1")
+            @PathVariable("title") String title){
+
+        return ResponseEntity.ok(recipesService.searchByTitle(title));
+    }
 }
 
 

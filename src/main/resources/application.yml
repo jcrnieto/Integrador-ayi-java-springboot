@@ -17,10 +17,10 @@ spring:
     hibernate:
       ddl-auto: create
     defer-datasource-initialization: 'true'
-  #sql:
-    #init:
-      #mode: always
-      #data-locations: classpath:script.sql
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:script.sql
 
 # Swagger settings.
 springfox:
